@@ -84,20 +84,21 @@ public class List {
         if (indexOf(chr) != -1) {
             Node current = first;
             Node prev = null;
-            while (!current.cp.equals(chr)) {
+            while (!current.cp.equals(chr) && (current != null)) {
                 prev = current;
                 current = current.next;
             }
-            if (current.next == null){
-                prev.next = null;
-                size--;
+            if (current == null){
+                return false;
+            }
+            if (prev == null){
+                first = first.next;
             } else {
-            prev.next = current.next;
-            size--;
+                 prev.next = current.next;
+                size--;
             }
             return true;
-        }
-        return false;     
+        }     
     }
 
     /** Returns the CharData object at the specified index in this list. 
