@@ -69,11 +69,12 @@ public class List {
      *  increments its counter. Otherwise, adds a new CharData object with the
      *  given chr to the beginning of this list. */
     public void update(char chr) {
-        if(indexOf(chr) == -1){
-            addFirst(chr);
-        } else {
+        if(indexOf(chr) != -1){
             this.listIterator(indexOf(chr)).current.cp.count++;
-        }
+        } else {
+            addFirst(chr);
+        } 
+      
     }
 
     /** GIVE If the given character exists in one of the CharData objects
